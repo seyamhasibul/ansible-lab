@@ -1,0 +1,5 @@
+secrets.yml
+*.vault
+*.retry
+.vault_pass
+*.tar.gz
