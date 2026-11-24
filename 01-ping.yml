@@ -1,7 +1,0 @@
----
-- name: Can Ansible reach the VM?
-  hosts: test
-  gather_facts: false
-  tasks:
-    - name: Ping
-      ansible.builtin.ping:

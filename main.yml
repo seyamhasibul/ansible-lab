@@ -1,0 +1,23 @@
+---
+- name: Ansible Test Script - Ping, OS Info, Install vim
+  hosts: test
+  gather_facts: true
+
+  tasks:
+    - name: ping
+      ansible.builtin.ping:
+
+    - name: Show OS Info
+      ansible.builtin.debug:
+        msg:
+          - "Host:    {{inventory_hostname}}"
+          - "Distro:  {{ ansible_facts['distribution'] }} {{ansible_facts['distribution_version'] }}"
+          - "Family:  {{ ansible_facts['os_family'] }}"
+          - "Kernel:  {{ ansible_facts['kernel'] }}"
+          - "Pkg mgr:  {{ ansible_facts['pkg_mgr'] }} default('n/a') }}"
+
+    - name: Install vim
+      become: true
+      ansible.builtin.package:
+        name: vim
+        state: present
